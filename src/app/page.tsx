@@ -12,13 +12,15 @@ export default function Home() {
     "not-urgent-not-important": [] as string[],
   });
 
-  const addTask = (task: string, quadrant: string) => {
+  type QuadrantType = "urgent-important" | "not-urgent-important" | "urgent-not-important" | "not-urgent-not-important";
+
+  const addTask = (task: string, quadrant: QuadrantType) => {
     setTasks((prev) => ({
       ...prev,
       [quadrant]: [...prev[quadrant], task],
     }));
   };
-
+  
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4 text-center">4 Quadrant Task Manager</h1>
